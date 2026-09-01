@@ -32,6 +32,7 @@ Running `dirb` against the web server exposed several active components and appl
 *Figure 2: web Directory Discovery.*
 
 ---
+---
 ![Nmap Scan Results](img/dirb2.png)
 *Figure 3: Web Directory Discovery.*
 

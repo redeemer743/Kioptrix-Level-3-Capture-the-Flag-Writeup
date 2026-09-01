@@ -145,7 +145,7 @@ dreg:\$1\$qAc2saWZ\$Y567sEs.ql3GMttI6pvoe0:15080:0:99999:7:::
 ```
 
 <!-- 🖼️ FIGURE 10: ADMINISTRATIVE DOMINANCE -->
-![Root Privilege Escalation and Loot](imG/root_escalation_lvl2.png)
+![Root Privilege Escalation and Loot](img/root_escalation_lvl2.png)
 *Figure 10: Escalated root prompt tracking and exfiltrated local password databases.*
 
 ---

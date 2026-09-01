@@ -27,7 +27,9 @@ Running `dirb` against the web server exposed several active components and appl
 
 <!-- 🖼️ FIGURE 1-FIGURE 4: NMAP SCAN RESULTS -->
 ![Nmap Scan Results](img/nmap_scan_lvl2.png)
+*Figure 1: Service identification highlighting active web and SSH components.*
 ![Nmap Scan Results](img/dirb1.png)
+*Figure 2: Web Directory Discovery*
 ![Nmap Scan Results](img/dirb2.png)
 ![Nmap Scan Results](img/dirb3.png)
 

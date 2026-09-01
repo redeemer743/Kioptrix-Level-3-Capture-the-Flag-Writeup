@@ -26,7 +26,7 @@ Running `dirb` against the web server exposed several active components and appl
 * `/phpmyadmin/` - An exposed database administration login utility interface page.
 
 <!-- 🖼️ FIGURE 1: NMAP SCAN RESULTS -->
-![Nmap Scan Results](images/nmap_scan_lvl2.png)
+![Nmap Scan Results](img/nmap_scan_lvl2.png)
 *Figure 1: Service identification highlighting active web and SSH components.*
 
 ---
@@ -41,7 +41,7 @@ Initial automated database injection tasks targeting the gallery infrastructure 
 ```
 
 <!-- 🖼️ FIGURE 2: FIXED DOMAIN RESOLUTION IN BROWSER -->
-![Gallery Dashboard Functional](images/sql_command_lvl2.png)
+![Gallery Dashboard Functional](img/sql_command_lvl2.png)
 *Figure 2: Mapped local DNS routing allowing the gallery template application to render properly.*
 
 ### 🔓 SQL Injection (SQLi) & Data Exfiltration
@@ -66,9 +66,13 @@ This isolated a critical backend user credential tracking table named **`dev_acc
 sqlmap -u "http://kioptrix3.com" -p id -D gallery -T dev_accounts --dump --batch
 ```
 
-<!-- 🖼️ FIGURE 3: SQLMAP CREDENTIAL EXFILTRATION -->
-![SQLMap Dump Results](images/foothold_lvl2.png)
+<!-- 🖼️ FIGURE 3 - FIGURE 5: SQLMAP CREDENTIAL EXFILTRATION -->
+![SQLMap Dump Results](img/foothold_lvl2.png)
 *Figure 3: SQLMap automated cracking process extracting cleartext development credentials.*
+![SQLMap Dump Results](img/foothold2_lvl2.png)
+*Figure 4: SQLMap automated cracking process extracting cleartext development credentials.*
+![SQLMap Dump Results](img/foothold3_lvl2.png)
+*Figure 5: SQLMap automated cracking process extracting cleartext development credentials.*
 
 ### 🔑 Recovered Credentials Matrix
 SQLMap's dictionary engine automatically processed and successfully cracked the stored MD5 cryptographic hashes:
@@ -87,9 +91,9 @@ Using the exfiltrated plaintext password profiles, an interactive terminal footh
 ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa loneferret@192.168.0.22
 ```
 
-<!-- 🖼️ FIGURE 4: INTERACTIVE SSH ACCESS -->
-![SSH Access Foothold](images/sql_command2_lvl2.png)
-*Figure 4: Authenticated user foothold terminal active over standard SSH.*
+<!-- 🖼️ FIGURE 6: INTERACTIVE SSH ACCESS -->
+![SSH Access Foothold](img/sql_command2_lvl2.png)
+*Figure 6: Authenticated user foothold terminal active over standard SSH.*
 
 ### 📂 Discovered Artifacts
 During enumeration of the `loneferret` home directory, a corporate policy document was uncovered explaining the intent behind local permission allowances:
@@ -136,8 +140,8 @@ loneferret:\$1\$qbkHf53U\$r.kK/JgDLDcXGRC6xUfB11:15079:0:99999:7:::
 dreg:\$1\$qAc2saWZ\$Y567sEs.ql3GMttI6pvoe0:15080:0:99999:7:::
 ```
 
-<!-- 🖼️ FIGURE 5: ADMINISTRATIVE DOMINANCE -->
-![Root Privilege Escalation and Loot](images/root_escalation_lvl2.png)
+<!-- 🖼️ FIGURE 7: ADMINISTRATIVE DOMINANCE -->
+![Root Privilege Escalation and Loot](imG/root_escalation_lvl2.png)
 *Figure 5: Escalated root prompt tracking and exfiltrated local password databases.*
 
 ---

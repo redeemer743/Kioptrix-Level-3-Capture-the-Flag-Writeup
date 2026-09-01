@@ -27,7 +27,6 @@ Running `dirb` against the web server exposed several active components and appl
 
 <!-- 🖼️ FIGURE 1-FIGURE 4: NMAP SCAN RESULTS -->
 ![Nmap Scan Results](img/nmap_scan_lvl2.png)
-*Figure 1: Service identification highlighting active web and SSH components.*
 ![Nmap Scan Results](img/dirb1.png)
 *Figure 2: Web Directory Discovery*
 ![Nmap Scan Results](img/dirb2.png)
@@ -48,7 +47,7 @@ Initial automated database injection tasks targeting the gallery infrastructure 
 
 <!-- 🖼️ FIGURE 5: FIXED DOMAIN RESOLUTION IN BROWSER -->
 ![Gallery Dashboard Functional](img/sql_command_lvl2.png)
-*Figure 5: Mapped local DNS routing allowing the gallery template application to render properly.*
+
 
 ### 🔓 SQL Injection (SQLi) & Data Exfiltration
 Navigating to the newly mapped image gallery path revealed a raw, dynamic parameter route:
@@ -74,11 +73,9 @@ sqlmap -u "http://kioptrix3.com" -p id -D gallery -T dev_accounts --dump --batch
 
 <!-- 🖼️ FIGURE 6 - FIGURE 8: SQLMAP CREDENTIAL EXFILTRATION -->
 ![SQLMap Dump Results](img/foothold_lvl2.png)
-*Figure 6: SQLMap automated cracking process extracting cleartext development credentials.*
 ![SQLMap Dump Results](img/foothold2_lvl2.png)
-*Figure 7: SQLMap automated cracking process extracting cleartext development credentials.*
 ![SQLMap Dump Results](img/foothold3_lvl2.png)
-*Figure 8: SQLMap automated cracking process extracting cleartext development credentials.*
+
 
 ### 🔑 Recovered Credentials Matrix
 SQLMap's dictionary engine automatically processed and successfully cracked the stored MD5 cryptographic hashes:
@@ -99,7 +96,7 @@ ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa lon
 
 <!-- 🖼️ FIGURE 9: INTERACTIVE SSH ACCESS -->
 ![SSH Access Foothold](img/sql_command2_lvl2.png)
-*Figure 9: Authenticated user foothold terminal active over standard SSH.*
+
 
 ### 📂 Discovered Artifacts
 During enumeration of the `loneferret` home directory, a corporate policy document was uncovered explaining the intent behind local permission allowances:
@@ -148,7 +145,7 @@ dreg:\$1\$qAc2saWZ\$Y567sEs.ql3GMttI6pvoe0:15080:0:99999:7:::
 
 <!-- 🖼️ FIGURE 10: ADMINISTRATIVE DOMINANCE -->
 ![Root Privilege Escalation and Loot](img/root_escalation_lvl2.png)
-*Figure 10: Escalated root prompt tracking and exfiltrated local password databases.*
+
 
 ---
 
